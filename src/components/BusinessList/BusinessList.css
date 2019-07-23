@@ -1,0 +1,13 @@
+.BusinessList {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 4.4rem 10%;
+  }
+
+  
+#noResults{
+  color:#cca353;
+  background-color: white;
+  font-style: italic;
+  }
