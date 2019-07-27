@@ -8,24 +8,31 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { businesses: null };
-    this.searchYelp = this.searchYelp.bind(this);
-   /*this.sortedByRating=this.sortedByRating.bind(this);*/
+    
+  
   }
-  searchYelp(term, location, sortBy) {
+  searchYelp=(term, location, sortBy)=>{
     Yelp.search(term, location, sortBy).then(businesses => {
-    this.setState({ businesses:businesses });
-    });
+    return this.setState({ businesses})}
+    ).catch((error)=>{
+      return this.setState({ businesses:[error]})});
+    
   }
-  /*sortedByRating(){
-    const sortedByRatingArray= this.state.businesses.map((a,b)=>b.rating-a.rating)
-    return this.setState({businesses:sortedByRatingArray})
-  }*/
+  searchYelpAndSortByRating=(term, location, sortBy)=>{
+    Yelp.search(term, location, sortBy).then(businesses => {
+      const sortedByRating=businesses.sort((x,y)=>y.rating-x.rating)
+    return this.setState({ businesses:sortedByRating });
+    }).catch((error)=>{
+      return this.setState({ businesses:[error]})});
+  }
+  
   render() {
     return (
       <div className="App">
         <h1>ravenous</h1>
         <SearchBar 
-            searchYelp={this.searchYelp} 
+            searchYelp={this.searchYelp}
+            searchYelpAndSortByRating={this.searchYelpAndSortByRating}
             businesses={this.state.businesses} 
             sortedByRating={this.sortedByRating}
             />
