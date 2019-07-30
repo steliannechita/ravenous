@@ -34,11 +34,11 @@ class SearchBar extends React.Component{
     handleLocationChange(event){
         return this.setState({location:event.target.value})
     }
-    handleSearch(event){
-        this.state.sortBy==='rating'?
+    handleSearch(){
+        return this.state.sortBy==='rating'?
         this.props.searchYelpAndSortByRating(this.state.term,this.state.location,this.state.sortBy):
         this.props.searchYelp(this.state.term,this.state.location,this.state.sortBy)
-        event.preventDefault()
+        
     }
     renderSortByOptions(){
         return Object.keys(this.sortByOptions)

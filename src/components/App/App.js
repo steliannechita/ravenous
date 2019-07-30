@@ -12,18 +12,17 @@ class App extends React.Component {
   
   }
   searchYelp=(term, location, sortBy)=>{
-    Yelp.search(term, location, sortBy).then(businesses => {
-    return this.setState({ businesses})}
-    ).catch((error)=>{
-      return this.setState({ businesses:[error]})});
-    
+    Yelp.search(term, location, sortBy)
+    .then(businesses => {
+      return this.setState({businesses: businesses})})
+      .catch((error)=> this.setState({businesses:error}))
   }
   searchYelpAndSortByRating=(term, location, sortBy)=>{
-    Yelp.search(term, location, sortBy).then(businesses => {
+    Yelp.search(term, location, sortBy)
+    .then(businesses => {
       const sortedByRating=businesses.sort((x,y)=>y.rating-x.rating)
-    return this.setState({ businesses:sortedByRating });
-    }).catch((error)=>{
-      return this.setState({ businesses:[error]})});
+      return this.setState({ businesses:sortedByRating })})
+      .catch((error)=> this.setState({businesses:error}))
   }
   
   render() {
@@ -33,8 +32,6 @@ class App extends React.Component {
         <SearchBar 
             searchYelp={this.searchYelp}
             searchYelpAndSortByRating={this.searchYelpAndSortByRating}
-            businesses={this.state.businesses} 
-            sortedByRating={this.sortedByRating}
             />
         {this.state.businesses && (
           <BusinessList businesses={this.state.businesses} />
