@@ -1,7 +1,5 @@
+const apiKey = process.env.REACT_APP_API_KEY;
 
-
-const apiKey =process.env.REACT_APP_API_KEY;
-  
 const Yelp = {
   search(term, location, sortBy) {
     return fetch(
@@ -12,7 +10,6 @@ const Yelp = {
       .then(jsonResponse => {
         if (jsonResponse.businesses) {
           return jsonResponse.businesses.map(business => {
-            
             return {
               id: business.id,
               imageSrc: business.image_url,
@@ -23,13 +20,14 @@ const Yelp = {
               zipCode: business.location.zip_code,
               category: business.categories[0].title,
               rating: business.rating,
-              reviewCount: business.review_count
-            }
-          })
-        }else if(jsonResponse.error){
-          throw jsonResponse
+              reviewCount: business.review_count,
+              phone:business.phone
+            };
+          });
+        } else if (jsonResponse.error) {
+          throw jsonResponse;
         }
-      })
+      });
   }
 };
 
