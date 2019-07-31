@@ -6,15 +6,13 @@ class BusinessList extends React.Component{
     
     render(){
         let businessesArray
-        if(this.props.businesses.length===0){
-            return businessesArray=<h1 id='noResults'>No results found</h1>        
-        }else if(this.props.businesses.error){
-            return businessesArray=<h1 id='noResults'>No results found</h1>
-        }else {
-             businessesArray=this.props.businesses.map(business=> {                   
-                return <Business key={business.id} business={business}/>
-            })
+        if(Array.isArray(this.props.businesses)&&this.props.businesses.length>0){
+            businessesArray=this.props.businesses.map(business=> {                   
+                return <Business key={business.id} business={business}/>})
+        }else{
+            return businessesArray=<h3 id='noResults'>No results found. Invalid entered inputs or no internet connection</h3>        
         }
+        
         return(
             
             <div className="BusinessList">
