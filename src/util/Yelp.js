@@ -25,7 +25,7 @@ const Yelp = {
             };
           });
         } else if (jsonResponse.error) {
-          throw jsonResponse;
+          throw jsonResponse.error;
         }
       });
   }

@@ -4,22 +4,16 @@ import Business from "../Business/business";
 
 class BusinessList extends React.Component {
   render() {
-    let businessesArray;
-    if (
-      Array.isArray(this.props.businesses) &&
-      this.props.businesses.length > 0
-    ) {
-      businessesArray = this.props.businesses.map(business => {
-        return <Business key={business.id} business={business} />;
-      });
-    } else {
-      return (businessesArray = (
-        <h3 id="noResults">
-          No results found. Invalid inputs or no internet connection
-        </h3>
-      ));
+    if (this.props.isLoading) {
+      return <div className="lds-hourglass"></div>;
     }
-
+    if (this.props.errors) {
+      return <h3 id="noResults">{this.props.errors.description}</h3>;
+    }
+    let businessesArray;
+    businessesArray = this.props.businesses.map(business => {
+      return <Business key={business.id} business={business} />;
+    });
     return <div className="BusinessList">{businessesArray}</div>;
   }
 }
