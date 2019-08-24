@@ -1,16 +1,42 @@
 .BusinessList {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 4.4rem 10%;
-  }
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 4.4rem 10%;
+}
 
-  
-#noResults{
-  margin:3rem;
-  color:#cca353;
+#noResults {
+  margin: 3rem;
+  color: #cca353;
   background-color: white;
   font-size: 1.2rem;
   font-style: italic;
-  text-align: center
+  text-align: center;
+}
+
+.loading {
+  margin: 3rem;
+  color: #cca353;
+  background-color: white;
+  font-size: 1.2rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.loading::after {
+  display: inline-block;
+  content: "...";
+  animation: 800ms infinite dotdotdot;
+}
+
+@keyframes dotdotdot {
+  0% {
+    content: ".";
   }
+  50% {
+    content: "..";
+  }
+  100% {
+    content: "...";
+  }
+}

@@ -5,7 +5,7 @@ import Business from "../Business/business";
 class BusinessList extends React.Component {
   render() {
     if (this.props.isLoading) {
-      return <div className="lds-hourglass"></div>;
+      return <div className="loading">Loading results</div>;
     }
     if (this.props.errors) {
       return <h3 id="noResults">{this.props.errors.description}</h3>;
