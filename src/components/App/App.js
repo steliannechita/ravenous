@@ -14,25 +14,25 @@ class App extends React.Component {
     };
   }
   searchYelp = (term, location, sortBy) => {
-    this.setState({isLoading:true})
+    this.setState({ isLoading: true });
     Yelp.search(term, location, sortBy)
       .then(businesses => {
-        return this.setState({ businesses: businesses,isLoading:false });
+        return this.setState({ businesses: businesses, isLoading: false });
       })
-      .catch(errors => this.setState({ errors,isLoading:false }));
+      .catch(errors => this.setState({ errors, isLoading: false }));
   };
   searchYelpAndSortByRating = (term, location, sortBy) => {
-    this.setState({isLoading:true})
+    this.setState({ isLoading: true });
     Yelp.search(term, location, sortBy)
       .then(businesses => {
         const sortedByRating = businesses.sort((x, y) => y.rating - x.rating);
-        return this.setState({ businesses: sortedByRating,isLoading: false });
+        return this.setState({ businesses: sortedByRating, isLoading: false });
       })
-      .catch(errors => this.setState({ errors,isLoading:false }));
+      .catch(errors => this.setState({ errors, isLoading: false }));
   };
-  handleClearState =()=>{
-    this.setState({businesses: [],errors:null})
-  }
+  handleClearAppState = () => {
+    this.setState({ businesses: [], errors: null });
+  };
 
   render() {
     return (
@@ -41,16 +41,14 @@ class App extends React.Component {
         <SearchBar
           searchYelp={this.searchYelp}
           searchYelpAndSortByRating={this.searchYelpAndSortByRating}
-          handleClearState={this.handleClearState}
+          handleClearAppState={this.handleClearAppState}
         />
-        
-          <BusinessList 
-            handleClearState={this.handleClearState}
-            businesses={this.state.businesses}
-            errors={this.state.errors}
-            isLoading ={this.state.isLoading}
-             />
-        
+
+        <BusinessList
+          businesses={this.state.businesses}
+          errors={this.state.errors}
+          isLoading={this.state.isLoading}
+        />
       </div>
     );
   }

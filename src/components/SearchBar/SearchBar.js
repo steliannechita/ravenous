@@ -4,7 +4,7 @@ import "./SearchBar.css";
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.searchInputRef=React.createRef();
+    this.searchInputRef = React.createRef();
     this.state = {
       term: "",
       location: "",
@@ -27,9 +27,11 @@ class SearchBar extends React.Component {
     this.setState({ sortBy: sortByOption });
   }
   handleTermChange(event) {
+    this.props.handleClearAppState();
     return this.setState({ term: event.target.value });
   }
   handleLocationChange(event) {
+    this.props.handleClearAppState();
     return this.setState({ location: event.target.value });
   }
   handleSearch(e) {
@@ -60,11 +62,11 @@ class SearchBar extends React.Component {
       );
     });
   }
-  handleClearSearch=()=>{
-    this.props.handleClearState();
-    this.setState({term: "",location: ""});
-    this.searchInputRef.current.focus();     
-  }
+  handleClearSearch = () => {
+    this.props.handleClearAppState();
+    this.setState({ term: "", location: "" });
+    this.searchInputRef.current.focus();
+  };
   render() {
     return (
       <div className="SearchBar">
@@ -81,7 +83,6 @@ class SearchBar extends React.Component {
               required
             />
             <input
-              
               placeholder="Where?"
               value={this.state.location}
               onChange={this.handleLocationChange}
@@ -92,8 +93,8 @@ class SearchBar extends React.Component {
             <button>Let's Go</button>
           </div>
         </form>
-        <div className='ClearSearch'>
-        <button onClick={this.handleClearSearch}>Clear</button>
+        <div className="ClearSearch">
+          <button onClick={this.handleClearSearch}>Clear</button>
         </div>
       </div>
     );
