@@ -8,7 +8,12 @@ class BusinessList extends React.Component {
       return <div className="loading">Loading results</div>;
     }
     if (this.props.errors) {
-      return <h3 id="noResults">{this.props.errors.description}||Try again</h3>;
+      return (
+        <h3 id="noResults">
+          {this.props.errors.description ||
+            "Couldn't perform the search. Please check your internet connection"}
+        </h3>
+      );
     }
 
     let businessesArray = this.props.businesses.map(business => {
