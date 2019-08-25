@@ -15,6 +15,11 @@ class BusinessList extends React.Component {
         </h3>
       );
     }
+    if (this.props.businesses.length === 0) {
+      return (
+        <h3 id="noResults"> Please start your search with a valid input</h3>
+      );
+    }
 
     let businessesArray = this.props.businesses.map(business => {
       console.log(business);
