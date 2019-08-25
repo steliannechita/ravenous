@@ -13,9 +13,14 @@
   font-style: italic;
   text-align: center;
 }
-
-.loading {
-  margin: 3rem;
+.loading-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loading-text{
+  margin: 2rem;
   color: #cca353;
   background-color: white;
   font-size: 1.2rem;
@@ -23,20 +28,17 @@
   text-align: center;
 }
 
-.loading::after {
-  display: inline-block;
-  content: "...";
-  animation: 800ms infinite dotdotdot;
+.loader {
+  border: 16px solid #e7e1e1; 
+  border-top: 16px solid #cca353; 
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+  text-align: center;
 }
 
-@keyframes dotdotdot {
-  0% {
-    content: ".";
-  }
-  50% {
-    content: "..";
-  }
-  100% {
-    content: "...";
-  }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

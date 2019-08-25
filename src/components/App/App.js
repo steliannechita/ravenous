@@ -14,7 +14,7 @@ class App extends React.Component {
     };
   }
   searchYelp = (term, location, sortBy) => {
-    this.setState({ isLoading: true });
+    this.setState({ businesses: [],isLoading: true });
     Yelp.search(term, location, sortBy)
       .then(businesses => {
         return this.setState({ businesses: businesses, isLoading: false });
@@ -22,7 +22,7 @@ class App extends React.Component {
       .catch(errors => this.setState({ errors, isLoading: false }));
   };
   searchYelpAndSortByRating = (term, location, sortBy) => {
-    this.setState({ isLoading: true });
+    this.setState({ businesses: [],isLoading: true });
     Yelp.search(term, location, sortBy)
       .then(businesses => {
         const sortedByRating = businesses.sort((x, y) => y.rating - x.rating);
@@ -30,8 +30,8 @@ class App extends React.Component {
       })
       .catch(errors => this.setState({ errors, isLoading: false }));
   };
-  handleClearAppState = () => {
-    this.setState({ businesses: [], errors: null });
+  handleClearErrState = () => {
+    this.setState({  errors: null });
   };
 
   render() {
@@ -41,7 +41,7 @@ class App extends React.Component {
         <SearchBar
           searchYelp={this.searchYelp}
           searchYelpAndSortByRating={this.searchYelpAndSortByRating}
-          handleClearAppState={this.handleClearAppState}
+          handleClearErrState={this.handleClearErrState}
         />
 
         <BusinessList

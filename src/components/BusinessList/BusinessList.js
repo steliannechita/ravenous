@@ -5,7 +5,12 @@ import Business from "../Business/business";
 class BusinessList extends React.Component {
   render() {
     if (this.props.isLoading) {
-      return <div className="loading">Loading results</div>;
+      return (
+        <div className='loading-container'>
+          <div className="loading-text">Loading results</div>
+          <div class="loader"></div>
+        </div>
+      ) ;
     }
     if (this.props.errors) {
       return (
@@ -17,7 +22,7 @@ class BusinessList extends React.Component {
     }
     if (this.props.businesses.length === 0) {
       return (
-        <h3 id="noResults"> Please start your search with a valid input</h3>
+        <h3 id="noResults"> Start your search by entering valid inputs above</h3>
       );
     }
 

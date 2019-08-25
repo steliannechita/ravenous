@@ -27,11 +27,11 @@ class SearchBar extends React.Component {
     this.setState({ sortBy: sortByOption });
   }
   handleTermChange(event) {
-    this.props.handleClearAppState();
+    this.props.handleClearErrState();
     return this.setState({ term: event.target.value });
   }
   handleLocationChange(event) {
-    this.props.handleClearAppState();
+    this.props.handleClearErrState();
     return this.setState({ location: event.target.value });
   }
   handleSearch(e) {
@@ -63,7 +63,7 @@ class SearchBar extends React.Component {
     });
   }
   handleClearSearch = () => {
-    this.props.handleClearAppState();
+    this.props.handleClearErrState();
     this.setState({ term: "", location: "" });
     this.searchInputRef.current.focus();
   };
