@@ -30,6 +30,9 @@ class App extends React.Component {
       })
       .catch(errors => this.setState({ errors,isLoading:false }));
   };
+  handleClearState =()=>{
+    this.setState({businesses: [],errors:null})
+  }
 
   render() {
     return (
@@ -38,12 +41,15 @@ class App extends React.Component {
         <SearchBar
           searchYelp={this.searchYelp}
           searchYelpAndSortByRating={this.searchYelpAndSortByRating}
+          handleClearState={this.handleClearState}
         />
         
           <BusinessList 
+            handleClearState={this.handleClearState}
             businesses={this.state.businesses}
             errors={this.state.errors}
-            isLoading ={this.state.isLoading} />
+            isLoading ={this.state.isLoading}
+             />
         
       </div>
     );

@@ -70,6 +70,23 @@
   font-weight: 700;
   transition: background-color 0.5s;
 }
+.ClearSearch {
+  text-align: center;
+}
+.ClearSearch button {
+  border-radius: 3px white;
+  margin-top: 1rem;
+  padding: 0.72rem 2.3rem;
+  background-color: #cca353;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: background-color 0.5s;
+}
+.ClearSearch button:hover {
+  cursor: pointer;
+  background-color: #a7874b;
+}
 
 .SearchBar-submit button:hover {
   cursor: pointer;
