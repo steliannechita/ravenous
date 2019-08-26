@@ -6,11 +6,11 @@ class BusinessList extends React.Component {
   render() {
     if (this.props.isLoading) {
       return (
-        <div className='loading-container'>
+        <div className="loading-container">
           <div className="loading-text">Loading results</div>
-          <div class="loader"></div>
+          <div className="loader"></div>
         </div>
-      ) ;
+      );
     }
     if (this.props.errors) {
       return (
@@ -18,11 +18,6 @@ class BusinessList extends React.Component {
           {this.props.errors.description ||
             "Couldn't perform the search. Please check your internet connection"}
         </h3>
-      );
-    }
-    if (this.props.businesses.length === 0) {
-      return (
-        <h3 id="noResults"> Start your search by entering valid inputs above</h3>
       );
     }
 

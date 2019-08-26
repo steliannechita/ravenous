@@ -13,13 +13,13 @@
   font-style: italic;
   text-align: center;
 }
-.loading-container{
+.loading-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.loading-text{
+.loading-text {
   margin: 2rem;
   color: #cca353;
   background-color: white;
@@ -29,8 +29,8 @@
 }
 
 .loader {
-  border: 16px solid #e7e1e1; 
-  border-top: 16px solid #cca353; 
+  border: 16px solid #e7e1e1;
+  border-top: 16px solid #cca353;
   border-radius: 50%;
   width: 30px;
   height: 30px;
@@ -39,6 +39,10 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
