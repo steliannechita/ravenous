@@ -16,7 +16,7 @@ class BusinessList extends React.Component {
       return (
         <h3 id="noResults">
           {this.props.errors.description ||
-            "Couldn't perform the search. Please check your internet connection and reload the page"}
+            "Couldn't perform the search. Please check your internet connection then reload the page"}
         </h3>
       );
     }
