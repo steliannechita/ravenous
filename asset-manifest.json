@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/ravenous/static/css/main.e7a2396d.chunk.css",
-    "main.js": "/ravenous/static/js/main.633ef951.chunk.js",
-    "main.js.map": "/ravenous/static/js/main.633ef951.chunk.js.map",
+    "main.css": "/ravenous/static/css/main.d7b392d3.chunk.css",
+    "main.js": "/ravenous/static/js/main.f434497d.chunk.js",
+    "main.js.map": "/ravenous/static/js/main.f434497d.chunk.js.map",
     "runtime~main.js": "/ravenous/static/js/runtime~main.f8ce170b.js",
     "runtime~main.js.map": "/ravenous/static/js/runtime~main.f8ce170b.js.map",
     "static/js/2.f0927397.chunk.js": "/ravenous/static/js/2.f0927397.chunk.js",
     "static/js/2.f0927397.chunk.js.map": "/ravenous/static/js/2.f0927397.chunk.js.map",
     "index.html": "/ravenous/index.html",
-    "precache-manifest.8d71a2678f8d990bf4918225ce504e1b.js": "/ravenous/precache-manifest.8d71a2678f8d990bf4918225ce504e1b.js",
+    "precache-manifest.66d948de2b0c9eafe0f98237bce4f5c6.js": "/ravenous/precache-manifest.66d948de2b0c9eafe0f98237bce4f5c6.js",
     "service-worker.js": "/ravenous/service-worker.js",
-    "static/css/main.e7a2396d.chunk.css.map": "/ravenous/static/css/main.e7a2396d.chunk.css.map",
+    "static/css/main.d7b392d3.chunk.css.map": "/ravenous/static/css/main.d7b392d3.chunk.css.map",
     "static/media/SearchBar.css": "/ravenous/static/media/background_search_mobile.709ae6de.jpg"
   }
 }
